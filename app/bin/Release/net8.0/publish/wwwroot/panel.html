@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - OPCTurkey PTC License Tracker v1.0</title>    <link rel="stylesheet" href="general.css">
+    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
+    <link rel="icon" type="image/png" href="logo.png">
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            background: url(https://images.pexels.com/photos/257636/pexels-photo-257636.jpeg) no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: #fffffff0;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        img{
+            width: 500px;
+        }
+        h1 {
+            font-size: 48px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #777;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+ 
+ 
+#home{
+    position: absolute;
+right:100px;
+
+padding: 10px;
+background-color: #1B7FC2;
+color: white;
+border: 0;
+border-radius: 5px;
+}
+
+ /* Apply styles to the form */
+form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #e2f3ff;
+    font-family: Arial, sans-serif;
+}
+
+/* Apply styles to input groups */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    flex-basis: 30%;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.input-group input[type="text"],
+.input-group select,
+.input-group textarea,
+.input-group input[type="date"],
+.input-group input[type="number"] ,
+.input-group input[type="email"] 
+    {
+    flex-grow: 1;
+    padding: 8px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Apply styles to buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button-group button {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button-group button:last-child {
+    margin-right: 0;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the textarea */
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#btnSil{
+    background-color: #ff3b00 !important;
+}
+
+#btnEkle{
+    background-color: #009c35 !important;
+}
+#btnGuncelle{
+    background-color:  #6130c8 !important;
+}
+#btnTemizle{
+    background-color:  #787878 !important;
+}
+#btnFill{
+    background-color:  #1b1387 !important;
+
+}
+
+#btnFill:hover{
+    background-color:  #070529 !important;
+
+}
+#btnSil:hover{
+    background-color: #cb3a0e !important;
+}
+
+#btnEkle:hover{
+    background-color: #048a31 !important;
+}
+#btnGuncelle:hover{
+    background-color:  #4a2797 !important;
+}
+#btnTemizle:hover{
+    background-color:  #424242 !important;
+}
+ 
+
+
+
+
+
+#csvexport{
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #009c35 !important;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+ 
+}
+
+#csvexport:hover{
+    background-color: #045820 !important;
+
+}
+
+#analyzedata{
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #bf29ff !important;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+ 
+}
+
+#analyzedata:hover{
+    background-color: rgba(68, 9, 126, 0.751) !important;
+
+}
+
+#exports{
+    display: none;
+}
+
+.ideaicon{
+width: 35px;
+margin-left: 4px;
+}
+
+
+
+    </style>
+    <script>
+        const SQL_JSON=%LICENSES_DATA%;
+        console.log(SQL_JSON);
+    </script>
+</head>
+<body><div class="loader-container">
+    <div class="loader"></div>
+  </div>
+
+  <div class="notification" id="notification"><img><p></p></div>
+
+
+  <div id="customPrompt" class="custom-prompt">
+    <div class="prompt-content">
+      <label for="rowID">Enter Target SQL Row ID:</label>
+      <input type="number" id="rowID" /><br><br>
+      <button id="confirmButton">OK</button>
+      <button id="cancelButton">Cancel</button>
+
+    </div>
+  </div>
+
+    <div class="container">
+        <a id="home" href="/"><i class="fa-solid fa-house"></i>  Home</a>
+        
+        <img src="https://opcturkey.com/uploads/opc-asp-logo.png">
+        <h1><img src="logo.png">PTC License Tracker v1.0</h1><hr><br><br>
+        <h2>Control Panel</h2><br>
+
+        <form>
+            <div class="input-group">
+                <label for="txtAd"><i class="fa-solid fa-signature"></i> First Name:</label>
+                <input type="text" id="txtAd" name="txtAd">
+            </div>
+            
+            <div class="input-group">
+                <label for="txtSoyad"><i class="fa-solid fa-address-card"></i> Last Name:</label>
+                <input type="text" id="txtSoyad" name="txtSoyad">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtEmail"><i class="fa-solid fa-envelope"></i> Email Address:</label>
+                <input type="email" id="txtEmail" name="txtEmail">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtFirma"><i class="fa-solid fa-building"></i> Company Name:</label>
+                <input type="text" id="txtFirma" name="txtFirma"><img id='ideaicon-company' class='ideaicon' src="https://cdn-icons-png.flaticon.com/512/10782/10782398.png">
+            </div>
+        
+            <div class="input-group">
+                <label for="cmbLisansIsmi"><i class="fa-solid fa-id-card"></i> License Name:</label>
+                <input type="text" id="cmbLisansIsmi" name="cmbLisansIsmi">
+                <img id='ideaicon-lisans' class='ideaicon' src="https://cdn-icons-png.flaticon.com/512/10782/10782398.png">
+            </div>
+        
+            <div class="input-group">
+                <label for="cmbLisansTuru"><i class="fa-regular fa-id-card"></i> License Type:</label>
+                <input type="text" id="cmbLisansTuru" name="cmbLisansTuru">                  
+                <img id='ideaicon-lisansturu' class='ideaicon' src="https://cdn-icons-png.flaticon.com/512/10782/10782398.png">
+
+            </div>
+        
+            <div class="input-group">
+                <label for="txtLisansId"><i class="fa-solid fa-id-badge"></i> License ID:</label>
+                <input type="text" id="txtLisansId" name="txtLisansId">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtOldLisansId"><i class="fa-regular fa-id-badge"></i> Old License ID:</label>
+                <input type="text" id="txtOldLisansId" name="txtOldLisansId">
+            </div>
+            <div class="input-group">
+                <label for="txtId"><i class="fa-solid fa-database"></i> SQL Row ID:</label>
+                <input type="text" id="txtId" name="txtId">
+            </div>
+        
+       
+            <div class="input-group">
+                <label for="txtAdet"><i class="fa-solid fa-boxes-stacked"></i> Quantity:</label>
+                <input type="text" id="txtAdet" name="txtAdet">
+            </div>
+        
+            <div class="input-group">
+                <label for="dtpLisansBitisTarihi"><i class="fa-solid fa-calendar-days"></i> License Expiration Date:</label>
+                <input type="date" id="dtpLisansBitisTarihi" name="dtpLisansBitisTarihi">
+            </div>
+        
+            <div class="input-group">
+                <label for="dtpAspInvoiceDate"><i class="fa-regular fa-calendar-days"></i> ASP Invoice Date:</label>
+                <input type="date" id="dtpAspInvoiceDate" name="dtpAspInvoiceDate">
+            </div>
+        
+            <div class="input-group">
+                <label for="dtpAspVadeBitisTarihi"><i class="fa-solid fa-calendar-day"></i> ASP Payment Due Date:</label>
+                <input type="date" id="dtpAspVadeBitisTarihi" name="dtpAspVadeBitisTarihi">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtPtcVade"><i class="fa-solid fa-clock"></i> PTC Payment Term (days):</label>
+                <input type="text" id="txtPtcVade" name="txtPtcVade">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtPtcPayi"><i class="fa-solid fa-money-bill-wave"></i> PTC Payment Amount (USD):</label>
+                <input type="text" id="txtPtcPayi" name="txtPtcPayi">
+            </div>
+        
+            <div class="input-group">
+                <label for="cmbPtcOdemeDurumu"><i class="fa-solid fa-traffic-light"></i> PTC Payment Status:</label>
+                <select id="cmbPtcOdemeDurumu" name="cmbPtcOdemeDurumu">
+                    <option>Paid</option>
+                    <option>Not Paid</option>
+                                </select>
+            </div>
+        
+            <div class="input-group">
+                <label for="txtPoNumber"><i class="fa-solid fa-barcode"></i> PO Number:</label>
+                <input type="text" id="txtPoNumber" name="txtPoNumber">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtPtcInvoiceNo"><i class="fa-solid fa-barcode"></i> PTC Invoice Number:</label>
+                <input type="text" id="txtPtcInvoiceNo" name="txtPtcInvoiceNo">
+            </div>
+        
+            <div class="input-group">
+                <label for="cmbSektor"><i class="fa-solid fa-helmet-safety"></i> Sector:</label>
+                <input type="text" id="cmbSektor" name="cmbSektor">
+                <img id='ideaicon-sektor' class='ideaicon' src="https://cdn-icons-png.flaticon.com/512/10782/10782398.png">
+
+            </div>
+        
+            <div class="input-group">
+                <label for="cmbSiEndUser"><i class="fa-solid fa-user"></i> SI or End User:</label>
+                <select id="cmbSiEndUser" name="cmbSiEndUser">
+                    <option>SI</option>
+                    <option>End User</option>
+
+                </select>
+            </div>
+        
+            <div class="input-group">
+                <label for="txtAspInvoice"><i class="fa-solid fa-file-invoice"></i> ASP Invoice:</label>
+                <input type="text" id="txtAspInvoice" name="txtAspInvoice">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtAspVadeSuresi"><i class="fa-solid fa-clock"></i> ASP Payment Term (days):</label>
+                <input type="number" id="txtAspVadeSuresi" name="txtAspVadeSuresi">
+            </div>
+        
+            <div class="input-group">
+                <label for="cmbFirmaOdemesi"><i class="fa-solid fa-calendar"></i> Company Made Payment?</label>
+                <select id="cmbFirmaOdemesi" name="cmbFirmaOdemesi">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+        
+            <div class="input-group">
+                <label for="cmbFinansSistemi"><i class="fa-solid fa-magnifying-glass-chart"></i> Entered into Financial System?</label>
+                <select id="cmbFinansSistemi" name="cmbFinansSistemi">
+                    <option>Yes</option>
+                    <option>No</option>
+                                </select>
+            </div>
+        
+            <div class="input-group">
+                <label for="dtpYurtdisiTalimatTarihi"><i class="fa-solid fa-calendar-days"></i> Foreign Instruction Date:</label>
+                <input type="date" id="dtpYurtdisiTalimatTarihi" name="dtpYurtdisiTalimatTarihi">
+            </div>
+        
+            <div class="input-group">
+                <label for="txtNot"><i class="fa-regular fa-clipboard"></i> Notes:</label>
+                <textarea id="txtNot" name="txtNot" rows="4" cols="50"></textarea>
+            </div>
+        
+            <!-- Buttons section remains the same -->
+            <h2>Actions:</h2>
+            <div class="button-group">
+                <button type="button" id="btnGoruntule"><i class="fa-solid fa-eye"></i> <br>View Record(s)</button>
+                <button type="button" id="btnFill"><i class="fa-solid fa-fill"></i> <br>Fill w/ 1st Match</button>
+                <button type="button" id="btnEkle"><i class="fa-solid fa-plus"></i> <br>Add New Record</button>
+                <button type="button" id="btnGuncelle"><i class="fa-solid fa-file-pen"></i><br> Update Record</button>
+                <button type="button" id="btnSil"><i class="fa-solid fa-trash-can"></i> <br>Delete Record</button>
+                 <button type="button" id="btnTemizle"><i class="fa-solid fa-broom"></i> <br>Clear Input Fields</button>
+            </div>
+        </form><br>
+        <hr><br><br>
+        <div id="containerOfResults"></div>
+        <div id="exports"><button type="button" id="csvexport"><i class="fa-solid fa-file-csv"></i> Export as CSV</button>
+            <button type="button" id="analyzedata"><i class="fa-solid fa-magnifying-glass-chart"></i> Analyze</button></div>
+    </div>    <script src="general.js"></script>
+    
+</body>
+</html>

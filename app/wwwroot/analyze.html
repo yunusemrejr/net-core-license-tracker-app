@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis Section - Yunus License Tracker v1.0</title>    <link rel="stylesheet" href="../general.css">
+    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
+    <link rel="icon" type="image/png" href="../logo.png">
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            background: url(https://images.pexels.com/photos/257636/pexels-photo-257636.jpeg) no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: #fffffff0;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        img{
+            width: 500px;
+        }
+        h1 {
+            font-size: 48px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #777;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+ 
+ 
+#home{
+    position: absolute;
+right:100px;
+
+padding: 10px;
+background-color: #1B7FC2;
+color: white;
+border: 0;
+border-radius: 5px;
+}
+
+ /* Apply styles to the form */
+form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #e2f3ff;
+    font-family: Arial, sans-serif;
+}
+
+/* Apply styles to input groups */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    flex-basis: 30%;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.input-group input[type="text"],
+.input-group select,
+.input-group textarea,
+.input-group input[type="date"],
+.input-group input[type="number"] ,
+.input-group input[type="email"] 
+    {
+    flex-grow: 1;
+    padding: 8px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Apply styles to buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button-group button {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button-group button:last-child {
+    margin-right: 0;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the textarea */
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#btnSil{
+    background-color: #ff3b00 !important;
+}
+
+#btnEkle{
+    background-color: #009c35 !important;
+}
+#btnGuncelle{
+    background-color:  #6130c8 !important;
+}
+#btnTemizle{
+    background-color:  #787878 !important;
+}
+#btnFill{
+    background-color:  #1b1387 !important;
+
+}
+
+#btnFill:hover{
+    background-color:  #070529 !important;
+
+}
+#btnSil:hover{
+    background-color: #cb3a0e !important;
+}
+
+#btnEkle:hover{
+    background-color: #048a31 !important;
+}
+#btnGuncelle:hover{
+    background-color:  #4a2797 !important;
+}
+#btnTemizle:hover{
+    background-color:  #424242 !important;
+}
+ 
+
+
+
+
+
+#csvexport{
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #009c35 !important;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+ 
+}
+
+#csvexport:hover{
+    background-color: #045820 !important;
+
+}
+
+#analyzedata{
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #bf29ff !important;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+ 
+}
+
+#analyzedata:hover{
+    background-color: rgba(68, 9, 126, 0.751) !important;
+
+}
+
+#exports{
+    display: none;
+}
+
+.ideaicon{
+width: 35px;
+margin-left: 4px;
+}
+
+
+#results-container {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#results-container  h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#results-container  .result-item {
+    margin-bottom: 15px;
+}
+
+#results-container  label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#results-container  p {
+    margin: 0;
+}
+
+#results-container  #top-buyers-list {
+    list-style: none;
+    padding: 0;
+}
+
+#results-container  #top-buyers-list li {
+    margin-bottom: 5px;
+}
+
+
+#results-container {
+    background-color: #e7e7e778;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  #results-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .result-item {
+    margin-bottom: 15px;
+  }
+  
+  .result-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .result-item p {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+  }
+  
+  #top-buyers-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #top-buyers-list li ,#licenses-sold-count-ul li{
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  #listContainer {
+    max-height: 120px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+  .result-item *{
+    text-align: center !important;
+  }
+  .result-item{
+
+    padding:10px;
+    margin: 10px;
+    background-color: rgb(224, 224, 224);
+
+  }
+  .result-item ul{
+    list-style: none;
+  }
+  #lic-count,
+  #dist-comp,
+  #no-of-paid,
+  #no-of-pend,
+  #in-2-months,
+  #top-5-buyers {
+    /* Apply a linear gradient background */
+    background: linear-gradient(45deg, #ffffff, #f0f0f0);
+    /* Add a glossy effect with a box shadow */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Other styles */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Specific background colors for each element */
+  #lic-count {
+    background: linear-gradient(45deg, #b9ffcd, #86f79a);
+  }
+  
+  #dist-comp {
+    background: linear-gradient(45deg, #ffefb9, #ffdb6b);
+  }
+  
+  #no-of-paid {
+    background: linear-gradient(45deg, #ffbfb9, #ff8c84);
+  }
+  
+  #no-of-pend {
+    background: linear-gradient(45deg, #fab9ff, #c788ff);
+  }
+  
+  #in-2-months {
+    background: linear-gradient(45deg, #b9e1ff, #7bc1ff);
+  }
+  
+  #top-5-buyers {
+    background: linear-gradient(45deg, #efffb9, #c4f74a);
+  }
+
+  #sold-license-types-count-desc{
+    background: linear-gradient(45deg, #b9ffcd, #86f79a);
+
+  }
+
+  
+    </style>
+</head>
+<body><div class="loader-container">
+    <div class="loader"></div>
+  </div>
+    <div class="container">
+        <a id="home" href="/"><i class="fa-solid fa-house"></i>  Home</a>
+
+        <img src="YOUR_LOGO_HERE">
+        <h1><img src="../logo.png">Yunus License Tracker v1.0</h1><hr><br><br>
+        <h2>Data Analysis Section</h2><br>
+       <div id="container-data-checker"></div>
+ 
+
+ 
+    </div>    <script src="../general.js"></script>
+    <script src="../analysis.js"></script>
+</body>
+</html>

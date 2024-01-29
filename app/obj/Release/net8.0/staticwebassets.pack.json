@@ -1,0 +1,73 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/404.html",
+      "PackagePath": "staticwebassets/404.html"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/about.html",
+      "PackagePath": "staticwebassets/about.html"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/analysis-loading.gif",
+      "PackagePath": "staticwebassets/analysis-loading.gif"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/analysis.js",
+      "PackagePath": "staticwebassets/analysis.js"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/analyze.html",
+      "PackagePath": "staticwebassets/analyze.html"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/check-mark.png",
+      "PackagePath": "staticwebassets/check-mark.png"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/error.png",
+      "PackagePath": "staticwebassets/error.png"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/general.css",
+      "PackagePath": "staticwebassets/general.css"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/general.js",
+      "PackagePath": "staticwebassets/general.js"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/logo.png",
+      "PackagePath": "staticwebassets/logo.png"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/no-data-err.png",
+      "PackagePath": "staticwebassets/no-data-err.png"
+    },
+    {
+      "Id": "/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/wwwroot/panel.html",
+      "PackagePath": "staticwebassets/panel.html"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.app.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.app.props",
+      "PackagePath": "build\\app.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.app.props",
+      "PackagePath": "buildMultiTargeting\\app.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.app.props",
+      "PackagePath": "buildTransitive\\app.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

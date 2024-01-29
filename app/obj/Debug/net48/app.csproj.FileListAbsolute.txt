@@ -1,0 +1,7 @@
+/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/obj/Debug/net48/app.csproj.AssemblyReference.cache
+/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/obj/Debug/net48/app.csproj.SuggestedBindingRedirects.cache
+/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/obj/Debug/net48/app.exe.config
+/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/obj/Debug/net48/app.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/obj/Debug/net48/app.AssemblyInfoInputs.cache
+/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/obj/Debug/net48/app.AssemblyInfo.cs
+/Users/yunusemrevurgun/Desktop/OPCTurkey License Tracker/app/obj/Debug/net48/app.csproj.CoreCompileInputs.cache
